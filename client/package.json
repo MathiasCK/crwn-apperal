@@ -29,7 +29,18 @@
     "stripe": "^8.135.0",
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4",
-    "yarn": "^1.22.10"
+    "workbox-background-sync": "6.1.1",
+    "workbox-broadcast-update": "6.1.1",
+    "workbox-cacheable-response": "6.1.1",
+    "workbox-core": "6.1.1",
+    "workbox-expiration": "6.1.1",
+    "workbox-google-analytics": "6.1.1",
+    "workbox-navigation-preload": "6.1.1",
+    "workbox-precaching": "6.1.1",
+    "workbox-range-requests": "6.1.1",
+    "workbox-routing": "6.1.1",
+    "workbox-strategies": "6.1.1",
+    "workbox-streams": "6.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -21,6 +21,7 @@ const Navbar = () => {
   const signOut = () => {
     dispatch(signOutStart());
   };
+
   return (
     <StyledHeader>
       <Link className="logo-container" to="/">
