@@ -43,6 +43,7 @@ const ShopPage = ({ match }) => {
             component={CollectionsOverviewContainer}
           />
           <Route
+            exact
             path={`${match.path}/:collectionId`}
             component={CollectionPageContainer}
           />
