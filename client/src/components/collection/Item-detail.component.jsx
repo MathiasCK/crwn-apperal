@@ -15,7 +15,9 @@ import Spinner from "../../utils/spinner/spinner.component";
 const ItemDetail = () => {
   const match = useRouteMatch();
   const history = useHistory();
-  const shopData = useSelector((state) => state.shop.collections);
+  const shopData = useSelector(
+    (state) => state.shop.collections /* selectCollections */
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,7 +36,12 @@ const ItemDetail = () => {
 
   if (!item || !collection) return null;
 
-  const sizes = item.sizes;
+  const itemSize = item.sizes;
+
+  const handleChange = (e) => {
+    const selectedSize = e.target.value;
+    console.log(selectedSize);
+  };
 
   return (
     <div>
@@ -60,10 +67,13 @@ const ItemDetail = () => {
           <h3>NOK {item.price}</h3>
           <p className="description">{item.description}</p>
           <div className="row">
-            <p>Size: </p>
-            <select required>
-              {sizes.map((size) => (
-                <option>{size}</option>
+            <p>Choose your size: </p>
+            <select required onChange={handleChange}>
+              <option selected disabled>
+                Size
+              </option>
+              {itemSize.map((sizes) => (
+                <option>{sizes}</option>
               ))}
             </select>
           </div>
@@ -98,8 +108,11 @@ const ItemDetail = () => {
 };
 
 const StyledItemDetail = styled(motion.div)`
+  @media (min-width: 500px) {
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  }
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-column-gap: 1rem;
   grid-row-gap: 2rem;
   justify-items: center;
@@ -111,6 +124,7 @@ const StyledItemDetail = styled(motion.div)`
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid black;
+    padding: 0.5rem 0;
     select {
       border: none;
       outline: none;

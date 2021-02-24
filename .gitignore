@@ -1,1 +1,4 @@
 node_modules
+
+/*allow read, write: if
+          request.time < timestamp.date(2021, 2, 26);*/

@@ -31,6 +31,7 @@ const ItemDetail = lazy(() =>
 const SignInAndSignUpPage = lazy(() =>
   import("./pages/Sign-In-And-Sign-Up.component")
 );
+const PaymentPage = lazy(() => import("./pages/Payment.component"));
 
 const App = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -53,6 +54,7 @@ const App = () => {
               <Route path="/shop" component={ShopPage} />
               <Route path="/contact" component={Contact} />
               <Route exact path="/checkout" component={CheckoutPage} />
+              <Route exact path="/payment" component={PaymentPage} />
               <Route
                 exact
                 path="/signin"

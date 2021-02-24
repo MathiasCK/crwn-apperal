@@ -7,6 +7,8 @@ import { selectCartItems, selectCartTotal } from "../redux/cart/cart.selectors";
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animations/animations";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
+import CustomButton from "../utils/Custom-button.component";
 
 const CheckoutPage = () => {
   const cartItems = useSelector(selectCartItems);
@@ -46,6 +48,7 @@ const CheckoutPage = () => {
           <div>
             <Total>
               <span>TOTAL: NOK {total}</span>
+              <Link to="/payment"></Link>
               <StripeCheckoutButton price={total} />
             </Total>
             <Warning>
@@ -55,7 +58,14 @@ const CheckoutPage = () => {
             </Warning>
           </div>
         ) : (
-          <h3>Your cart is empty, nothing to see here</h3>
+          <div>
+            <h3>Your cart is empty, nothing to see here</h3>
+            <Link to="/shop">
+              <center>
+                <CustomButton>Back To Shop</CustomButton>
+              </center>
+            </Link>
+          </div>
         )}
       </StyledCheckout>
     </>
@@ -73,6 +83,9 @@ const StyledCheckout = styled(motion.div)`
   align-items: center;
   margin: 50px auto 0;
   padding-top: 10px;
+  button {
+    margin: 1rem 0;
+  }
 `;
 
 const Total = styled.div`

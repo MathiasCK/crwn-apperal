@@ -1,5 +1,5 @@
 import React from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { selectCollection } from "../../redux/shop/shop.selectors";
 import { motion } from "framer-motion";

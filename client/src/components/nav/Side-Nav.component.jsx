@@ -92,7 +92,7 @@ const Navbar = styled(motion.div)`
   backdrop-filter: saturate(180%) blur(5px);
   opacity: 0.9;
   height: 70px;
-  min-width: 100%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
