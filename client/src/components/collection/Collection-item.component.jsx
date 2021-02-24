@@ -5,7 +5,7 @@ import { Link, useRouteMatch } from "react-router-dom";
 const CollectionItem = ({ item, collectionId }) => {
   const { params } = useRouteMatch();
 
-  const { name, price, imageUrl, id, imageUrl2 } = item;
+  const { name, price, imageUrl, id, imageUrl2, sizes } = item;
 
   // HVER ENKELT ITEM I COLLECTION
   return (
@@ -13,6 +13,7 @@ const CollectionItem = ({ item, collectionId }) => {
       <Link
         style={{ width: "100%", height: "100%" }}
         to={`/shop/${collectionId || params.collectionId}/${id}`}
+        sizes={sizes}
       >
         {imageUrl && (
           <BackgroundImage

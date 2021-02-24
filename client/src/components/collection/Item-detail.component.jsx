@@ -34,6 +34,8 @@ const ItemDetail = () => {
 
   if (!item || !collection) return null;
 
+  const sizes = item.sizes;
+
   return (
     <div>
       <StyledItemDetail
@@ -60,9 +62,9 @@ const ItemDetail = () => {
           <div className="row">
             <p>Size: </p>
             <select required>
-              <option>S</option>
-              <option selected>M</option>
-              <option>L</option>
+              {sizes.map((size) => (
+                <option>{size}</option>
+              ))}
             </select>
           </div>
           <CustomButton
