@@ -1,21 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import { Link, useRouteMatch } from "react-router-dom";
+import {Link, useRouteMatch} from "react-router-dom";
 
-const CollectionItem = ({ item, collectionId }) => {
-  const { params } = useRouteMatch();
+const CollectionItem = ({item, collectionId}) => {
+  const {params} = useRouteMatch();
 
-  const { name, price, imageUrl, id, imageUrl2, sizes } = item;
+  const {name, price, imageUrl, id, imageUrl2, sizes} = item;
+
+  const images = imageUrl2 && imageUrl;
 
   // HVER ENKELT ITEM I COLLECTION
   return (
     <StyledCollection>
       <Link
-        style={{ width: "100%", height: "100%" }}
+        style={{width: "100%", height: "100%"}}
         to={`/shop/${collectionId || params.collectionId}/${id}`}
         sizes={sizes}
       >
-        {imageUrl && (
+        {images && (
           <BackgroundImage
             className="image"
             imageUrl={imageUrl}
@@ -82,9 +84,9 @@ const BackgroundImage = styled.div`
   background-size: cover;
   background-position: center;
   margin-bottom: 5px;
-  background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+  background-image: ${({imageUrl}) => `url(${imageUrl})`};
   will-change: background-image;
-  ${({ imageUrl2 }) =>
+  ${({imageUrl2}) =>
     imageUrl2
       ? `&:hover {
 				cursor: pointer;
