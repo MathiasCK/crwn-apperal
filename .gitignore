@@ -1,4 +1,5 @@
-node_modules
-
-/*allow read, write: if
-          request.time < timestamp.date(2021, 2, 26);*/
+/node_modules
+/client/node_modules
+/client/build
+.DS_store
+/.DS_store
